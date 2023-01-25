@@ -38,14 +38,19 @@ export const VelorenHeader = () => {
         }, 10000);
         return () => {
             clearInterval(imgLoop);
-            console.log(child)
         }
     },[child])
 
     useEffect(() => {
         window.addEventListener('scroll', () => {
+            const parallaxLoop = setTimeout(() => {
             setTop(window.scrollY);
+            }, 10)
+            return () => {
+                clearTimeout(parallaxLoop);
+            }
         });
+        return () => window.removeEventListener('scroll')
     }, []);
 
   return (
@@ -53,7 +58,7 @@ export const VelorenHeader = () => {
     <StyledVelorenHeader top={`${top}`} imageChild={`${child}`}>
         <img className="logo" src={Logo1} alt="Veloren Game Logo 1" />
         <div className="img-container">
-            {imagesArr.map((image, i) => {return <img src={image} alt={"Veloren Videogame Screenshot image number " + (i + 1)} key={i} />})}
+            {imagesArr.map((image, i) => {return <img src={image} className="veloren-images" alt={"Veloren Videogame Screenshot image number " + (i + 1)} key={i} />})}
         </div>
     </StyledVelorenHeader>
     </>
@@ -78,7 +83,7 @@ grid-template-columns: auto;
     width: 100%;
     position: relative;
     overflow: hidden;
-    img {
+    .veloren-images {
         opacity: 0;
         position: absolute;
         transition: opacity 800ms;

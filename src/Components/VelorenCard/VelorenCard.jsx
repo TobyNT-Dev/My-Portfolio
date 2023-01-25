@@ -17,7 +17,7 @@ export const VelorenCard = () => {
                 <p>I also worked on some sound effects for the game, these were however never implemented.</p>
                 <a target="_blank" href="https://veloren.net">More about it here</a>
             </figcaption>
-            <YouTubePlayer />
+            {/* <YouTubePlayer /> */}
         </figure>
         </RowContainer>
     </StyledVelorenCard>
