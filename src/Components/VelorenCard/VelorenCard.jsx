@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { RowContainer } from '../Sections/RowContainer'
 import { VelorenHeader } from './VelorenHeader'
-import YouTubePlayer from './YoutubePlayer'
 
 export const VelorenCard = () => {
   return (
@@ -17,7 +16,7 @@ export const VelorenCard = () => {
                 <p>I also worked on some sound effects for the game, these were however never implemented.</p>
                 <a target="_blank" href="https://veloren.net">More about it here</a>
             </figcaption>
-            {/* <YouTubePlayer /> */}
+            
         </figure>
         </RowContainer>
     </StyledVelorenCard>

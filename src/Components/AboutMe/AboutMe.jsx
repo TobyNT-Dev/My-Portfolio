@@ -2,17 +2,9 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
 export const AboutMe = () => {
-  const [randomNumber, setRandomNumber] = useState(1)
-
-  useEffect(() => {
-    const timerInterval = setInterval(() => {
-        setRandomNumber(Math.floor(Math.random() * 17) + 1)
-    }, 1500)
-    return () => clearInterval(timerInterval)
-  },[])
 
   return (
-    <StyledSection randomNumber={randomNumber}>
+    <StyledSection>
       <h1><span>Welcome</span>, take a look around!</h1>
       <p>I'm Tobias Thy, and I am a Junior <span>Web Developer</span>, with a great passion for design, and user experience.</p>
       <h2>What do I have experience in?</h2>
@@ -77,12 +69,6 @@ h2 {
   justify-content: space-between;
   align-items: center;
   p {
-    :nth-child(${props => props.randomNumber}) {
-      transition: 300ms;
-      background-color: #F20046;
-      color: #fff;
-    }
-    transition: 1200ms;
     display: inline-block;
     margin: 0.2vw;
     padding: 0.3vw;

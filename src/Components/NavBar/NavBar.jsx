@@ -35,8 +35,8 @@ const StyledNav = styled.nav`
         margin-right: 4vw;
         transition: 200ms;
         &:hover {
-            color: #F20046;
-            transition: 200ms;
+          transition: 200ms;
+          color: #F20046;
         }
     }
 }

@@ -23,47 +23,55 @@ import styled from 'styled-components'
 
 export const VelorenHeader = () => {
     const imagesArr = [Img1, Img2, Img3, Img4, Img5, Img6, Img7, Img8, Img9, Img10, Img11, Img12, Img13]
-    const [child, setChild] = useState(1)
+    const [imgIndex, setImgIndex] = useState(0)
 
     const [top, setTop] = useState(0);
     
     useEffect(() => {
         const imgLoop = setInterval(() => {
-            if (child < 12) {
-                setChild(state => state + 1)
+            if (imgIndex < 12) {
+                setImgIndex(state => state + 1)
             }
             else {
-                setChild(1)
+                setImgIndex(0)
             }
         }, 10000);
         return () => {
             clearInterval(imgLoop);
         }
-    },[child])
+    },[imgIndex])
 
     useEffect(() => {
         window.addEventListener('scroll', () => {
             const parallaxLoop = setTimeout(() => {
-            setTop(window.scrollY);
-            }, 10)
-            return () => {
-                clearTimeout(parallaxLoop);
-            }
+            setTop(() => window.scrollY)
+        }, 10)
+        return () => {
+            clearTimeout(parallaxLoop);
+        }
         });
-        return () => window.removeEventListener('scroll')
     }, []);
 
   return (
     <>
-    <StyledVelorenHeader top={`${top}`} imageChild={`${child}`}>
+    <StyledVelorenHeader>
         <img className="logo" src={Logo1} alt="Veloren Game Logo 1" />
         <div className="img-container">
-            {imagesArr.map((image, i) => {return <img src={image} className="veloren-images" alt={"Veloren Videogame Screenshot image number " + (i + 1)} key={i} />})}
+            <StyledImg top={top} src={imagesArr[imgIndex]} alt="Veloren Videogame Screenshot image" />
         </div>
     </StyledVelorenHeader>
     </>
   )
 }
+
+const StyledImg = styled.img.attrs(props => ({
+    style: {
+        transform: `translateY(-${props.top}px)`,
+    }
+}))`
+position: absolute;
+width: 100vw;
+`
 
 const StyledVelorenHeader = styled.div`
 
@@ -83,14 +91,5 @@ grid-template-columns: auto;
     width: 100%;
     position: relative;
     overflow: hidden;
-    .veloren-images {
-        opacity: 0;
-        position: absolute;
-        transition: opacity 800ms;
-        :nth-child(${props => props.imageChild}) {
-            transform: translateY(-${props => props.top}px);
-            opacity: 1;
-        }
-    }
 }
 `
