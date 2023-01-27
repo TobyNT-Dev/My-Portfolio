@@ -24,28 +24,31 @@ import styled from 'styled-components'
 export const VelorenHeader = () => {
     const imagesArr = [Img1, Img2, Img3, Img4, Img5, Img6, Img7, Img8, Img9, Img10, Img11, Img12, Img13]
     const [imgIndex, setImgIndex] = useState(0)
-
+    const [back, setBack] = useState(imagesArr[imgIndex]);
+    
     const [top, setTop] = useState(0);
     
     useEffect(() => {
         const imgLoop = setInterval(() => {
             if (imgIndex < 12) {
                 setImgIndex(state => state + 1)
+                setBack(imagesArr[imgIndex])
             }
             else {
                 setImgIndex(0)
+                setBack(imagesArr[imgIndex])
             }
-        }, 10000);
+        }, 10000)
         return () => {
-            clearInterval(imgLoop);
+            clearInterval(imgLoop)
         }
-    },[imgIndex])
+    },[imagesArr[imgIndex]])
 
     useEffect(() => {
         window.addEventListener('scroll', () => {
             const parallaxLoop = setTimeout(() => {
             setTop(() => window.scrollY)
-        }, 10)
+        },)
         return () => {
             clearTimeout(parallaxLoop);
         }
@@ -57,20 +60,26 @@ export const VelorenHeader = () => {
     <StyledVelorenHeader>
         <img className="logo" src={Logo1} alt="Veloren Game Logo 1" />
         <div className="img-container">
-            <StyledImg top={top} src={imagesArr[imgIndex]} alt="Veloren Videogame Screenshot image" />
+            <StyledImg top={top} back={back}></StyledImg>
         </div>
     </StyledVelorenHeader>
     </>
   )
 }
 
-const StyledImg = styled.img.attrs(props => ({
+const StyledImg = styled.div.attrs(props => ({
     style: {
-        transform: `translateY(-${props.top}px)`,
+        transform: `translateY(-${props.top/2}px)`,
+        backgroundImage: `url(${props.back})`
     }
 }))`
+transition: background-image 0.5s ease-in-out;
 position: absolute;
 width: 100vw;
+height: 100vh;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
 `
 
 const StyledVelorenHeader = styled.div`

@@ -5,7 +5,6 @@ import {ReactComponent as LogoSvg} from '../../Assets/SVG/TobiasThy-Logo.svg'
 
 export const NavBar = () => {
   return (
-    <div>
       <StyledNav>
       <Link to="/"><LogoSvg /></Link>
         <div className="nav-items">
@@ -14,44 +13,48 @@ export const NavBar = () => {
           <Link to="/contact">Contact</Link>
         </div>
       </StyledNav>
-    </div>
   )
 }
 
-// f20046-bb0049-84004b-4d004e-150050
-
 const StyledNav = styled.nav`
+position: sticky;
+top: 0;
+backdrop-filter: blur(5px);
+background: linear-gradient(#00000052, #02020200);
 .nav-items {
     z-index: 5;
     display: flex;
     justify-content: flex-end;
-    backdrop-filter: blur(15px);
     margin: 1vw;
     a {
-        font-family: 'Cabin', sans-serif;
-        color: white;
+        color: ${props => props.theme.colors.onBackground};
         text-decoration: none;
         font-size: 1.5vw;
         margin-right: 4vw;
         transition: 200ms;
+        padding: 0.3vw 0.5vw;
+        border-radius: 4px;
+        font-weight: 900;
+        text-shadow: 0px 0px 0px ${props => props.theme.colors.primary};
         &:hover {
+          text-shadow: 0px 0px 10px ${props => props.theme.colors.primary};
           transition: 200ms;
-          color: #F20046;
+          color: ${props => props.theme.colors.primary};
         }
+      }
     }
-}
-svg {
-  position: absolute;
-  width: 4.5vw;
-  margin: 0 4vw;
-  z-index: 10;
-  .cls-1 {
-    fill:#fff;
+    svg {
+      position: absolute;
+      width: 3.5vw;
+      margin: 0.3vw 4vw;
+      z-index: 10;
+      .cls-1 {
+    fill: ${props => props.theme.colors.onBackground};
     transition: 1000ms;
   }
   &:hover {
     .cls-1 {
-      fill: #F20046;
+      fill: ${props => props.theme.colors.primary};
       transition: 250ms;
     }
   }
