@@ -18,6 +18,7 @@ export const NavBar = () => {
 
 const StyledNav = styled.nav`
 position: sticky;
+z-index: 20;
 top: 0;
 backdrop-filter: blur(5px);
 background: linear-gradient(#00000052, #02020200);

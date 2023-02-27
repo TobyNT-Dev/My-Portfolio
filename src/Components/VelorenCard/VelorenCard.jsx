@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { RowContainer } from '../Sections/RowContainer'
 import { VelorenHeader } from './VelorenHeader'
