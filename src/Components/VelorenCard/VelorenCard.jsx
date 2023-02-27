@@ -29,6 +29,7 @@ export const VelorenCard = () => {
 
 const StyledVelorenCard = styled.article`
 margin-top: 6vw;
+margin-bottom: 10vw;
 .v-title {
     font-size: 1.8vw;
     margin: 1.5vw 0;
