@@ -83,7 +83,6 @@ background-size: cover;
 `
 
 const StyledVelorenHeader = styled.div`
-
 display: grid;
 grid-template-columns: auto;
 
