@@ -16,6 +16,7 @@ export const Contact = () => {
       .then((result) => {
         // console.log(result)
         setFormSwitch(true)
+        sessionStorage.setItem("form_handler", "true")
       }, (error) => {
         // console.log(error.text)
         setFormSwitch("error")
@@ -23,12 +24,12 @@ export const Contact = () => {
   }
   return (
     <>
-    {!formSwitch ? <StyledForm>
-      <h1>Contact me</h1>
+    {(!formSwitch && !sessionStorage.getItem("form_handler")) ? <StyledForm>
+      <h1>Contact me<span>|</span></h1>
       <form ref={form} id="contact-form" onSubmit={handleSubmit}>
-        <label>Name</label>
+        <label>Your name</label>
         <input required type="text" name="fullname"/>
-        <label>Email</label>
+        <label>Your e-mail</label>
         <input required type="email" name="email"/>
         <label>Message</label>
         <textarea required name="message"></textarea>
@@ -78,6 +79,7 @@ const StyledResponse = styled.div`
     50% { opacity: 0.9; transform: rotateZ(180deg); filter: drop-shadow( 0px 0px 5px ${(props) => props.theme.colors.secondary}) }
     100% { opacity: 0.6; transform: rotateZ(360deg); filter: drop-shadow( 0px 0px 0px ${(props) => props.theme.colors.secondary}) }
   }
+@media only screen and (min-width: 600px) {
   text-align: center;
   height: 10vw;
   margin: 2vw auto;
@@ -93,9 +95,11 @@ const StyledResponse = styled.div`
   h2 {
     display: inline-block;
     height: 2vw;
+    font-size: 1.5vw;
   }
   h3 {
     display: inline-block;
+    font-size: 1vw;
   }
   .x-icon {
     transform-box: fill-box;
@@ -128,53 +132,181 @@ const StyledResponse = styled.div`
       fill: ${(props) => props.theme.colors.secondary};
     }
   }
-`
-const StyledForm = styled.div`
-margin: 2vw auto;
-h1 {
-  margin: 1vw 0;
 }
-form {
+@media only screen and (max-width: 600px) {
+  text-align: center;
+  height: 40vw;
+  margin: 2vw auto;
+  display: grid;
+  grid-template-rows: 1fr 1fr 2fr;
   border-radius: 5px;
   border-top: ${(props) => props.theme.colors.secondary} 2px solid;
   border-left: ${(props) => props.theme.colors.secondary} 2px solid;
   background-color: ${(props) => props.theme.colors.cardBackground};
   box-shadow: black 5px 5px 12px;
-  display: grid;
-  width: 31vw;
+  width: 90vw;
   padding: 1vw;
-  label {
-    font-size: 1.1vw;
-    margin: 0.25vw;
+  h2 {
+    margin-top: 2vw;
+    display: inline-block;
+    height: 2vw;
+    font-size: 5vw;
   }
-  textarea {
-    margin: 0.25vw;
-    font-size: 1.1vw;
-    resize: none;
-    border: none;
-    border-radius: 3px;
-    background-color: white;
-    font-family: 'Cabin', sans-serif;
+  h3 {
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+    display: inline-block;
+    font-size: 4vw;
   }
-  input {
-    margin: 0.25vw;
-    font-size: 1.1vw;
-    border: none;
-    border-radius: 3px;
-    background-color: white;
-  .submit {
-    color: white;
-    width: 50%;
-    text-align: center;
-    transition: 200ms;
-    text-shadow: 0px 0px 0px #000;
-    font-size: 1.2vw;
-    &:hover {
-      transition: 200ms;
-      color: ${props => props.theme.colors.primary};
-      text-shadow: 0px 0px 10px ${props => props.theme.colors.primary};
+  .x-icon {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: moveX 3000ms ease-in-out infinite;
+    width: 12vw;
+    height: 12vw;
+    margin: 1vw auto;
+    path {
+      fill: ${(props) => props.theme.colors.primary};
+    }
+  }
+  .check-icon {
+    transform-origin: center;
+    animation: moveCheck 3000ms ease-in-out infinite;
+    width: 12vw;
+    height: 12vw;
+    margin: 1vw auto;
+    path {
+      fill: ${(props) => props.theme.colors.secondary};
+    }
+  }
+  .loading-icon {
+    margin: 10vw auto 0 auto;
+    animation: moveLoading 2000ms linear infinite;
+    width: 12vw;
+    height: 12vw;
+    transform-origin: 6vw 6vw;
+    path {
+      fill: ${(props) => props.theme.colors.secondary};
     }
   }
 }
+`
+
+
+
+
+
+
+const StyledForm = styled.div`
+@keyframes blink {
+  0% {color: rgba(255, 255, 255, 1);}
+  49% {color: rgba(255, 255, 255, 1);}
+  50% {color: rgba(255, 255, 255, 0);}
+  100% {color: rgba(255, 255, 255, 0);}
 }
+@media only screen and (min-width: 600px) {
+  margin: 2vw auto;
+  h1 {
+    margin: 1vw 0;
+    span {
+      animation: blink linear infinite 1s;
+    }
+  }
+  form {
+    border-radius: 5px;
+    border-top: ${(props) => props.theme.colors.secondary} 2px solid;
+    border-left: ${(props) => props.theme.colors.secondary} 2px solid;
+    background-color: ${(props) => props.theme.colors.cardBackground};
+    box-shadow: black 5px 5px 12px;
+    display: grid;
+    width: 31vw;
+    padding: 1vw;
+    label {
+      font-size: 1.1vw;
+      margin: 0.25vw;
+    }
+    textarea {
+      margin: 0.25vw;
+      font-size: 1.1vw;
+      resize: none;
+      border: none;
+      border-radius: 3px;
+      background-color: white;
+      font-family: 'Cabin', sans-serif;
+    }
+    input {
+      margin: 0.25vw;
+      font-size: 1.1vw;
+      border: none;
+      border-radius: 3px;
+      background-color: white;
+    }
+    .submit {
+      width: 3vw;
+      margin: 0.8vw auto 0vw auto;
+      color: #000000;
+      width: 50%;
+      text-align: center;
+      transition: 200ms;
+      font-size: 1.2vw;
+      &:hover {
+        cursor: pointer;
+        background-color: ${props => props.theme.colors.secondary};
+      }
+    }
+  }}
+
+  @media only screen and (max-width: 600px) {
+    margin: 2vw auto;
+  h1 {
+    text-align: center;
+    margin: 1vw 0;
+    span {
+      animation: blink linear infinite 1s;
+    }
+  }
+  form {
+    border-radius: 5px;
+    border-top: ${(props) => props.theme.colors.secondary} 2px solid;
+    border-left: ${(props) => props.theme.colors.secondary} 2px solid;
+    background-color: ${(props) => props.theme.colors.cardBackground};
+    box-shadow: black 5px 5px 12px;
+    display: grid;
+    width: 90vw;
+    padding: 3vw;
+    label {
+      font-size: 5.5vw;
+      margin: 1vw;
+    }
+    textarea {
+      margin: 0.25vw;
+      font-size: 5vw;
+      resize: none;
+      border: none;
+      border-radius: 3px;
+      background-color: white;
+      font-family: 'Cabin', sans-serif;
+    }
+    input {
+      margin: 0.25vw;
+      font-size: 5vw;
+      border: none;
+      border-radius: 3px;
+      background-color: white;
+    }
+    .submit {
+      width: 3vw;
+      margin: 2vw auto 0vw auto;
+      color: #000000;
+      width: 50%;
+      text-align: center;
+      transition: 200ms;
+      font-size: 5.5vw;
+      &:hover {
+        cursor: pointer;
+        background-color: ${props => props.theme.colors.secondary};
+      }
+    }
+  }
+  }
 `

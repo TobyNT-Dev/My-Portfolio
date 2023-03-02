@@ -6,7 +6,11 @@ export const Footer = () => {
   return (
     <StyledFooter>
       <RowContainer>
+        <div className="info">
         <h2>Portfolio - Tobias Nedergaard Thy</h2>
+        </div>
+        <div className="socials">
+        </div>
       </RowContainer>
     </StyledFooter>
   )

@@ -42,7 +42,7 @@ export const VelorenHeader = () => {
         return () => {
             clearInterval(imgLoop)
         }
-    },[imagesArr[imgIndex]])
+    })
 
     useEffect(() => {
         window.addEventListener('scroll', () => {
@@ -84,20 +84,37 @@ background-size: cover;
 
 const StyledVelorenHeader = styled.div`
 display: grid;
-grid-template-columns: auto;
-
-.logo {
-    filter: drop-shadow(0 0 15px black);
-    position: absolute;
-    display: block;
-    margin: 5vw 37.5vw;
-    width: 25vw;
-    z-index: 10;
-}
-.img-container {
-    height: 17vw;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
+    grid-template-columns: auto;
+    .logo {
+        filter: drop-shadow(0 0 15px black);
+        position: absolute;
+        display: block;
+        margin: 1vw 25vw;
+        width: 50vw;
+        z-index: 10;
+    }
+    .img-container {
+        height: 27vw;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+@media only screen and (min-width: 600px) {
+    display: grid;
+    grid-template-columns: auto;
+    .logo {
+        filter: drop-shadow(0 0 15px black);
+        position: absolute;
+        display: block;
+        margin: 5vw 37.5vw;
+        width: 25vw;
+        z-index: 10;
+    }
+    .img-container {
+        height: 17vw;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+    }
 }
 `
