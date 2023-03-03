@@ -21,11 +21,11 @@ export const VelorenCard = () => {
             <figcaption className="section-1">
                 <p>Veloren is an Open Source video game, and has a great community, of developers working on the game in their free time. The game inspired me a lot, so I composed and produced a soundtrack called "The Quiet After the Battle" that was later added to the game.</p>
                 <p>I also worked on some sound effects for the game, however these are not yet implemented.</p>
-                <Link target="_blank" rel="noopener" to="https://veloren.net">More info on Veloren Official Website</Link>
+                <a target="_blank" href="https://veloren.net">More info on Veloren Official Website</a>
             </figcaption>
             <div className="section-2">
                 <p>The soundtrack is very calming, therefore along with the team, I decided that the music only should be played, at night in the many towns and villages, spread out across the world of Veloren.</p>
-                <p>You can view the Youtube video with the soundtrack <Link target="_blank" rel="noopener" to="https://youtu.be/yNxxCwwKyes?t=7269">here.</Link> Or on Soundcloud <Link target="_blank" to="https://soundcloud.com/thyofficial/47h2349e17a815?si=f07865396d2c400d980d4acbdeeb5d22&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing">here.</Link></p>
+                <p>You can view the Youtube video with the soundtrack <a target="_blank" href="https://youtu.be/yNxxCwwKyes?t=7269">here.</a> Or on Soundcloud <a target="_blank" href="https://soundcloud.com/thyofficial/47h2349e17a815?si=f07865396d2c400d980d4acbdeeb5d22&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing">here.</a></p>
                 <audio src={audio} controls={true}/>
             </div>
         </figure></> : <h2 onClick={handleExpand}>Expand full article ↓</h2>}

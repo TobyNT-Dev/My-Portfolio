@@ -5,7 +5,7 @@ export const AboutMe = () => {
   return (
     <StyledSection>
       <h1><span>Welcome</span>, take a look around!</h1>
-      <p className="abt-me">I'm Tobias Thy, and I am a Junior <span className="span-1">Web Developer</span>, with a great passion for <span className="span-2">design,</span> user-experience & user-Interface.</p>
+      <p className="abt-me">I'm <span>Tobias Thy</span>, and I am a Junior <span className="span-1">Frontend Developer</span>, with a great passion for <span className="span-2">design</span>, user-experience & user-Interface.</p>
       <h2>Skillset Overview</h2>
       <div className="items">
           <p>HTML</p>
@@ -46,14 +46,18 @@ h1 {
     }
   }
   .abt-me {
-    width: 60%;
+    width: 80%;
     text-align: center;
     margin: 5vw auto;
     color: ${props => props.theme.colors.onBackground};
     font-family: 'Cabin', sans-serif;
-    font-size: 5vw;
+    font-size: 6vw;
+    span {
+    font-size: 6.5vw;
+      color: ${(props) => props.theme.colors.primary};
+    }
     .span-2 {
-      font-size: 5.5vw;
+      font-size: 7.5vw;
       font-family: 'Style Script', sans-serif;
     }
   }
@@ -95,10 +99,10 @@ h1 {
     margin-top: 3vw;
     color: ${props => props.theme.colors.onBackground};
     font-family: 'Cabin', sans-serif;
-    font-size: 2.4vw;
+    font-size: 2.5vw;
     text-align: center;
     span {
-      font-size: 2.7vw;
+      font-size: 3vw;
       color: ${(props) => props.theme.colors.primary};
     }
   }
@@ -108,7 +112,12 @@ h1 {
     margin: 2.5vw auto;
     color: ${props => props.theme.colors.onBackground};
     font-family: 'Cabin', sans-serif;
-    font-size: 1.4vw;
+    font-size: 1.8vw;
+    span {
+      font-size: 2.3vw;
+      color: ${(props) => props.theme.colors.primary};
+      font-weight: 900;
+    }
     .span-2 {
       font-size: 2vw;
       font-family: 'Style Script', sans-serif;

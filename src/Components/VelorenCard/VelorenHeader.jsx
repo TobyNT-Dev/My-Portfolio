@@ -106,7 +106,7 @@ display: grid;
         filter: drop-shadow(0 0 15px black);
         position: absolute;
         display: block;
-        margin: 5vw 37.5vw;
+        margin: 3vw 37.5vw;
         width: 25vw;
         z-index: 10;
     }
