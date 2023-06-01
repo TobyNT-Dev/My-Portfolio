@@ -13,20 +13,20 @@ export const InelcoGrindersCard = () => {
     <StyledInelcoGrindersCard>
         <InelcoGrindersHeader />
         <RowContainer>
-        <h1 className="v-title">Scalable Vector Graphics Animation Loop</h1>
+        <h1 className="v-title">Scalable Vector Graphics Animation</h1>
         {expand ? 
-        <><h2 onClick={handleExpand}>Hide full article ↑</h2>
+        <><h2 onClick={handleExpand}>Skjul artikel ↑</h2>
         <figure>
             <figcaption className="section-1">
-                <p>For Inelco Grinders A/S, I animated an existing SVG design, on their page, to add some more movement on that part of the page.</p>
-                <p>It is located on the front page of their website, right below the top element.</p>
-                <a target="_blank" href="https://inelco-grinders.com">See it for yourself!</a>
+                <p>For Inelco Grinders A/S animerede jeg et eksisterende SVG-design, på deres side, for at tilføje noget mere bevægelse på den del af siden.</p>
+                <p>Det er placeret på forsiden af deres hjemmeside, lige under det øverste element. Jeg kan desværre ikke vise det frem på min hjemmeside, på grund af rettigheder.</p>
+                <a target="_blank" href="https://inelco-grinders.com">Se det på deres side.</a>
             </figcaption>
             <div className="section-2">
-                <p>It was fun to work on visuals, and delve deep into the amazing world of SVG animation.</p>
-                <p>There are so many possibilities, and so many awesome things that can be done, to make a website more fun, and exciting to visit.</p>
+                <p>Det var sjovt at arbejde med visuals og dykke dybt ind i SVG-animationens fantastiske, og spændene verden.</p>
+                <p>Der er så mange muligheder, for at gøre en hjemmeside mere levende og mere spændende at besøge. Og det var en fornøjelse at arbejde med det.</p>
             </div>
-        </figure></> : <h2 onClick={handleExpand}>Expand full article ↓</h2>}
+        </figure></> : <h2 onClick={handleExpand}>Udvid artikel ↓</h2>}
         </RowContainer>
     </StyledInelcoGrindersCard>
   )

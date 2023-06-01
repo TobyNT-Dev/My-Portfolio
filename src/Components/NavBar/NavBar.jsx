@@ -9,7 +9,7 @@ export const NavBar = () => {
       <Link to="/"><LogoSvg /></Link>
         <div className="nav-items">
           <Link to="/">Home</Link>
-          <Link to="/projects">Projects</Link>
+          {/* <Link to="/projects">Projects</Link> */}
           <Link to="/contact">Contact</Link>
         </div>
       </StyledNav>

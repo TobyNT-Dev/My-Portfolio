@@ -1,28 +1,43 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
 export const AboutMe = () => {
+    const [greeting, setGreeting] = useState("")
+
+    useEffect(() => {
+      let day = new Date();
+      let hr = day.getHours();
+      if (hr >= 0 && hr < 12) {
+        setGreeting("godmorgen!");
+      } else if (hr === 12) {
+        setGreeting("god middag!");
+      } else if (hr >= 12 && hr <= 17) {
+        setGreeting("god eftermiddag!");
+      } else {
+        setGreeting("godaften!");
+      }
+    },[])
   return (
     <StyledSection>
-      <h1><span>Welcome</span>, take a look around!</h1>
-      <p className="abt-me">I'm <span>Tobias Thy</span>, and I am a Junior <span className="span-1">Frontend Developer</span>, with a great passion for <span className="span-2">design</span>, user-experience & user-Interface.</p>
-      <h2>Skillset Overview</h2>
+      <h1><span>Velkommen</span>, og {greeting}</h1>
+      <p className="abt-me">Jeg hedder <span>Tobias Thy</span>, og jeg er Junior <span className="span-1">Frontend Developer</span>, med en stor passion for web-design, kode- og databasetruktur og brugergrænseflade optimisering.</p>
+      <h2>Mine erfaringer</h2>
       <div className="items">
           <p>HTML</p>
           <p>JSX</p>
           <p>React</p>
-          <p>Audio Engineering</p>
+          <p>Lyddesign</p>
           <p>NPM</p>
           <p>SCSS</p>
           <p>SVG Design</p>
           <p>Javascript</p>
           <p>Play Canvas</p>
           <p>OOP</p>
-          <p>Music Production</p>
+          <p>Musik Produktion</p>
           <p>Git & Github</p>
           <p>SVG Animation</p>
           <p>Rest API</p>
-          <p>Agile Work Methods</p>
+          <p>Agile Arbejdsmetoder</p>
           <p>Styled Components</p>
           <p>MySQL</p>
           <p>Figma</p>

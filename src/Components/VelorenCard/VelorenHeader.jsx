@@ -69,7 +69,7 @@ export const VelorenHeader = () => {
 
 const StyledImg = styled.div.attrs(props => ({
     style: {
-        transform: `translateY(-${props.top/2}px)`,
+        transform: `translateY(-${props.top/3}px)`,
         backgroundImage: `url(${props.back})`
     }
 }))`

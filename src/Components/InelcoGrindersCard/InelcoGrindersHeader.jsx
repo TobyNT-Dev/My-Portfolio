@@ -38,7 +38,7 @@ export const InelcoGrindersHeader = () => {
 
 const StyledImg = styled.div.attrs(props => ({
     style: {
-        transform: `translateY(-${props.top/2}px)`
+        transform: `translateY(-${props.top/2.8}px)`
     }
 }))`
 transition: background-image 0.5s ease-in-out;
