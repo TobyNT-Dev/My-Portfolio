@@ -25,28 +25,28 @@ export const Contact = () => {
   return (
     <>
     {(!formSwitch && !sessionStorage.getItem("form_handler")) ? <StyledForm>
-      <h1>Contact me<span>|</span></h1>
+      <h1>Kontakt mig<span>|</span></h1>
       <form ref={form} id="contact-form" onSubmit={handleSubmit}>
-        <label>Your name</label>
+        <label>Navn</label>
         <input required type="text" name="fullname"/>
-        <label>Your e-mail</label>
+        <label>E-mail</label>
         <input required type="email" name="email"/>
-        <label>Message</label>
+        <label>Besked</label>
         <textarea required name="message"></textarea>
         <input className="submit" type="submit" value="Send" />
       </form>
-    </StyledForm> 
+    </StyledForm>
     : <StyledResponse>
       {formSwitch !== "loading" ? (formSwitch !== "error" ? (
         <>
-      <h2>Message was sent successfully!</h2>
-      <h3>You will receive an auto-reply email. Please Check your spam folder, sometimes it ends up there.</h3>
+      <h2>Beskeden blev sent afsted!</h2>
+      <h3>Du vil modtage et automatisk svar på din email. Tjek venligst din spam folder, nogen gange ender den der.</h3>
       <FontAwesomeIcon className="check-icon" icon={faCircleCheck} />
         </>
         )  : (
           <>
-        <h2>Message failed to be sent...</h2>
-        <h3>Try again, or contact me directly at thymusiker@gmail.com</h3>
+        <h2>Beskeden kunne ikke sendes...</h2>
+        <h3>Prøv igen, eller kontakt mig direkte på thymusiker@gmail.com</h3>
         <FontAwesomeIcon className="x-icon" icon={faCircleXmark} />
           </>
         )) : (
