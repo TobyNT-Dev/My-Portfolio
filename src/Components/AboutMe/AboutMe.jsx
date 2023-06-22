@@ -129,7 +129,7 @@ h1 {
     font-family: 'Cabin', sans-serif;
     font-size: 1.8vw;
     span {
-      font-size: 2.3vw;
+      font-size: 2vw;
       color: ${(props) => props.theme.colors.primary};
       font-weight: 900;
     }
