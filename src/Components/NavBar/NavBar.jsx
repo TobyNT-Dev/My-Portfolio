@@ -21,7 +21,7 @@ const StyledNav = styled.nav`
   position: sticky;
   z-index: 20;
   top: 0;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(2px);
   background: linear-gradient(#00000052, #02020200);
   .nav-items {
       z-index: 5;
@@ -31,7 +31,7 @@ const StyledNav = styled.nav`
       a {
           color: ${props => props.theme.colors.onBackground};
           text-decoration: none;
-          font-size: 1.5vw;
+          font-size: 1.5rem;
           margin-right: 4vw;
           transition: 200ms;
           padding: 0.3vw 0.5vw;
@@ -47,7 +47,7 @@ const StyledNav = styled.nav`
       }
       svg {
         position: absolute;
-        width: 3.5vw;
+        height: 3.5rem;
         margin: 0.3vw 4vw;
         z-index: 10;
         .cls-1 {

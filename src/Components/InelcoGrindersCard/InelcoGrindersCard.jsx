@@ -1,32 +1,24 @@
 import styled from 'styled-components'
 import { RowContainer } from '../Sections/RowContainer'
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
 import { InelcoGrindersHeader } from './InelcoGrindersHeader'
 
 export const InelcoGrindersCard = () => {
-    const [expand, setExpand] = useState(false)
-    const handleExpand = () => {
-        setExpand((state) => !state)
-    }
   return (
     <StyledInelcoGrindersCard>
         <InelcoGrindersHeader />
         <RowContainer>
         <h1 className="v-title">Scalable Vector Graphics Animation</h1>
-        {expand ? 
-        <><h2 onClick={handleExpand}>Skjul artikel ↑</h2>
         <figure>
             <figcaption className="section-1">
                 <p>For Inelco Grinders A/S animerede jeg et eksisterende SVG-design, på deres side, for at tilføje noget mere bevægelse på den del af siden.</p>
                 <p>Det er placeret på forsiden af deres hjemmeside, lige under det øverste element. Jeg kan desværre ikke vise det frem på min hjemmeside, på grund af rettigheder.</p>
-                <a target="_blank" href="https://inelco-grinders.com">Se det på deres side.</a>
+                <a target="_blank" rel="noreferrer" href="https://inelco-grinders.com">Se det på deres side.</a>
             </figcaption>
             <div className="section-2">
                 <p>Det var sjovt at arbejde med visuals og dykke dybt ind i SVG-animationens fantastiske, og spændene verden.</p>
                 <p>Der er så mange muligheder, for at gøre en hjemmeside mere levende og mere spændende at besøge. Og det var en fornøjelse at arbejde med det.</p>
             </div>
-        </figure></> : <h2 onClick={handleExpand}>Udvid artikel ↓</h2>}
+        </figure>
         </RowContainer>
     </StyledInelcoGrindersCard>
   )

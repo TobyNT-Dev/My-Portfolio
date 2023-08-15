@@ -7,8 +7,10 @@ export const AboutMe = () => {
     useEffect(() => {
       let day = new Date();
       let hr = day.getHours();
-      if (hr >= 0 && hr < 12) {
+      if (hr >= 0 && hr < 10) {
         setGreeting("godmorgen!");
+      } else if (hr < 12) {
+        setGreeting("god formiddag!");
       } else if (hr === 12) {
         setGreeting("god middag!");
       } else if (hr >= 12 && hr <= 17) {
@@ -20,130 +22,146 @@ export const AboutMe = () => {
   return (
     <StyledSection>
       <h1><span>Velkommen</span>, og {greeting}</h1>
-      <p className="abt-me">Jeg hedder <span>Tobias Thy</span>, og jeg er Junior <span className="span-1">Frontend Developer</span>, med en stor passion for web-design, kode- og databasetruktur og brugergrænseflade optimisering.</p>
-      <h2>Mine erfaringer</h2>
-      <div className="items">
-          <p>HTML</p>
-          <p>JSX</p>
-          <p>React</p>
-          <p>Lyddesign</p>
-          <p>NPM</p>
-          <p>SCSS</p>
-          <p>SVG Design</p>
-          <p>Javascript</p>
-          <p>Play Canvas</p>
-          <p>OOP</p>
-          <p>Musik Produktion</p>
-          <p>Git & Github</p>
-          <p>SVG Animation</p>
-          <p>Rest API</p>
-          <p>Agile Arbejdsmetoder</p>
-          <p>Styled Components</p>
-          <p>MySQL</p>
-          <p>Figma</p>
-          <p>Cubase DAW</p>
+      <div className="text-wrapper">
+      <p className="abt-me1">Jeg hedder <span>Tobias Thy</span>, og jeg er Junior <span>Frontend Developer</span>, med en stor passion for web-design, kode- og databasetruktur og brugergrænseflade optimisering.</p>
+      <p className="abt-me2">Nu er jeg startet på <span>Data Tekniker</span>, for at få erfaring indenfor alt hvad der hedder backend, C#, og programmering, for at kunne få et solidt felt af viden og erfaring som <span>Full Stack</span> udvikler.</p>
       </div>
+      <h2>Mine erfaringer</h2>
+      <ul className="items">
+          <li>HTML</li>
+          <li>JSX</li>
+          <li>React</li>
+          <li>Lyddesign</li>
+          <li>NPM</li>
+          <li>SCSS</li>
+          <li>SVG Design</li>
+          <li>Javascript</li>
+          <li>Play Canvas</li>
+          <li>OOP</li>
+          <li>Musik Produktion</li>
+          <li>Git & Github</li>
+          <li>SVG Animation</li>
+          <li>Rest API</li>
+          <li>Agile Arbejdsmetoder</li>
+          <li>Styled Components</li>
+          <li>MySQL</li>
+          <li>Figma</li>
+          <li>Cubase DAW</li>
+      </ul>
     </StyledSection>
   )
 }
 
 const StyledSection = styled.section`
 // 600px & under
-h1 {
-  margin-top: 3vw;
-  color: ${props => props.theme.colors.onBackground};
-  font-family: 'Cabin', sans-serif;
-  font-size: 6vw;
-  text-align: center;
-  span {
-    font-size: 7vw;
-      color: ${(props) => props.theme.colors.primary};
-    }
-  }
-  .abt-me {
-    width: 80%;
-    text-align: center;
-    margin: 5vw auto;
+@media only screen and (max-width: 600px) {
+  h1 {
+    margin-top: 30px;
     color: ${props => props.theme.colors.onBackground};
     font-family: 'Cabin', sans-serif;
-    font-size: 6vw;
+    font-size: 2rem;
+    text-align: center;
     span {
-    font-size: 6.5vw;
-      color: ${(props) => props.theme.colors.primary};
+      font-size: 2rem;
+        color: ${(props) => props.theme.colors.primary};
+      }
     }
-    .span-2 {
-      font-size: 7.5vw;
-      font-family: 'Style Script', sans-serif;
+    .text-wrapper {
+
+      .abt-me1 {
+        width: 45%;
+        text-align: center;
+        margin: 20px auto;
+        color: ${props => props.theme.colors.onBackground};
+        font-family: 'Cabin', sans-serif;
+        font-size: 2rem;
+        span {
+          color: ${(props) => props.theme.colors.primary};
+        }
+      }
+      .abt-me2 {
+        width: 45%;
+        text-align: center;
+        margin: 20px auto;
+        color: ${props => props.theme.colors.onBackground};
+        font-family: 'Cabin', sans-serif;
+        font-size: 2rem;
+      span {
+        color: ${(props) => props.theme.colors.primary};
+      }
     }
   }
-  h2 {
-  text-align: center;
-  margin:0 0 0.8vw 0;
-  color: ${props => props.theme.colors.onBackground};
-  font-family: 'Cabin', sans-serif;
-  font-size: 6vw;
-  font-weight: 300;
-}
-.items {
-  border-radius: 5px;
-  border-top: ${(props) => props.theme.colors.secondary} 2px solid;
-  border-left: ${(props) => props.theme.colors.secondary} 2px solid;
-  background-color: ${(props) => props.theme.colors.cardBackground};
-  box-shadow: black 5px 5px 12px;
-  padding: 2vw;
-  display: flex;
-  flex-wrap: wrap;
-  width: 80vw;
-  margin: 0 auto;
-  justify-content: space-between;
-  align-items: center;
-  p {
-    font-size: 4.5vw;
-    display: inline-block;
-    margin: 0.2vw;
-    padding: 0.3vw;
-    border: ${props => props.theme.colors.primary} solid 1px;
-    box-shadow: 0 0 5px ${props => props.theme.colors.primary};
-    border-radius: 3px;
+    h2 {
+    text-align: center;
+    margin:0 0 10px 0;
     color: ${props => props.theme.colors.onBackground};
-    font-weight: 900;
+    font-family: 'Cabin', sans-serif;
+    font-size: 2rem;
+    font-weight: 300;
+  }
+  .items {
+    box-shadow: black 5px 5px 12px;
+    padding: 2vw;
+    width: 80vw;
+    margin: 0 auto;
+    column-count: 2;
+    li {
+      font-size: 1.7rem;
+      color: ${props => props.theme.colors.onBackground};
+      font-weight: 900;
+      margin-left: initial;
+    }
   }
 }
+//PC and tablet devices
 @media only screen and (min-width: 600px) {
   h1 {
     margin-top: 3vw;
     color: ${props => props.theme.colors.onBackground};
     font-family: 'Cabin', sans-serif;
-    font-size: 2.5vw;
+    font-size: 2rem;
     text-align: center;
     span {
-      font-size: 3vw;
+      font-size: 2.2rem;
       color: ${(props) => props.theme.colors.primary};
     }
   }
-  .abt-me {
-    width: 60%;
-    text-align: center;
-    margin: 2.5vw auto;
-    color: ${props => props.theme.colors.onBackground};
-    font-family: 'Cabin', sans-serif;
-    font-size: 1.8vw;
-    span {
-      font-size: 2vw;
-      color: ${(props) => props.theme.colors.primary};
-      font-weight: 900;
+  .text-wrapper {
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    align-items: space-between;
+    .abt-me1 {
+      display: inline-block;
+      width: 45%;
+      text-align: center;
+      margin: 20px auto;
+      color: ${props => props.theme.colors.onBackground};
+      font-family: 'Cabin', sans-serif;
+      font-size: 1.6rem;
+      span {
+        color: ${(props) => props.theme.colors.primary};
+      }
     }
-    .span-2 {
-      font-size: 2vw;
-      font-family: 'Style Script', sans-serif;
+    .abt-me2 {
+      display: inline-block;
+      width: 45%;
+      text-align: center;
+      margin: 20px auto;
+      color: ${props => props.theme.colors.onBackground};
+      font-family: 'Cabin', sans-serif;
+      font-size: 1.6rem;
+    span {
+      color: ${(props) => props.theme.colors.primary};
+    }
   }
 }
 h2 {
   text-align: center;
-  margin:0 0 0.8vw 0;
+  margin:0 0 15px 0;
   color: ${props => props.theme.colors.onBackground};
   font-family: 'Cabin', sans-serif;
-  font-size: 1.7vw;
+  font-size: 1.5rem;
   font-weight: 300;
 }
 .items {
@@ -152,23 +170,15 @@ h2 {
   border-left: ${(props) => props.theme.colors.secondary} 2px solid;
   background-color: ${(props) => props.theme.colors.cardBackground};
   box-shadow: black 5px 5px 12px;
-  padding: 2vw;
-  display: flex;
-  flex-wrap: wrap;
-  width: 50vw;
+  padding: 15px 20px;
+  width: 75%;
   margin: 0 auto;
-  justify-content: space-between;
-  align-items: center;
-  p {
-    font-size: 1.2vw;
-    display: inline-block;
-    margin: 0.2vw;
-    padding: 0.3vw;
-    border: ${props => props.theme.colors.primary} solid 1px;
-    box-shadow: 0 0 5px ${props => props.theme.colors.primary};
-    border-radius: 3px;
+  column-count: 3;
+  li {
+    font-size: 1.2rem;
     color: ${props => props.theme.colors.onBackground};
     font-weight: 900;
+    margin-left: 25%;
   }
 }
 }

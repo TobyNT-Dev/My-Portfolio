@@ -286,6 +286,7 @@ const StyledForm = styled.div`
       border-radius: 3px;
       background-color: white;
       font-family: 'Cabin', sans-serif;
+      height: 6vw;
     }
     input {
       margin: 0.25vw;

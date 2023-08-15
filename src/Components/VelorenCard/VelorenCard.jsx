@@ -2,32 +2,25 @@ import styled from 'styled-components'
 import { RowContainer } from '../Sections/RowContainer'
 import { VelorenHeader } from './VelorenHeader'
 import audio from "../../Assets/Audio/the-quiet-after-the-battle.wav"
-import { useState } from 'react'
 
 export const VelorenCard = () => {
-    const [expand, setExpand] = useState(false)
-    const handleExpand = () => {
-        setExpand((state) => !state)
-    }
   return (
     <StyledVelorenCard>
         <VelorenHeader />
         <RowContainer>
         <h1 className="v-title">Musikproduktion & Lydeffektdesign</h1>
-        {expand ? 
-        <><h2 onClick={handleExpand}>Skjul artikel ↑</h2>
         <figure>
             <figcaption className="section-1">
                 <p>Veloren er et Open Source videospil som har et fantastisk fællesskab af udviklere, der arbejder på spillet i deres fritid. Spillet inspirerede mig rigtigt meget, så jeg komponerede og producerede et soundtrack kaldet "The Quiet After the Battle", som senere blev tilføjet til spillet.</p>
                 <p>Jeg arbejdede også på nogle lydeffekter til spillet, men disse er endnu ikke implementeret.</p>
-                <a target="_blank" href="https://veloren.net">Læs mere om Veloren</a>
+                <a target="_blank" rel="noreferrer" href="https://veloren.net">Læs mere om Veloren</a>
             </figcaption>
             <div className="section-2">
                 <p>Soundtracket er meget beroligende, derfor besluttede jeg sammen med musik- og lydproduktions holdet, at musikken kun skulle spilles om natten i de mange byer og landsbyer spredt ud over Velorens verden.</p>
-                <p>Du kan høre soundtracket på<a target="_blank" href="https://youtu.be/yNxxCwwKyes?t=7269"> Velorens youtube kanal</a>, eller på <a target="_blank" href="https://soundcloud.com/thyofficial/47h2349e17a815?si=f07865396d2c400d980d4acbdeeb5d22&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing">Soundcloud</a> - eller lige her ↓</p>
+                <p>Du kan høre soundtracket på<a target="_blank" rel="noreferrer" href="https://youtu.be/yNxxCwwKyes?t=7269"> Velorens youtube kanal</a>, på <a target="_blank" rel="noreferrer" href="https://soundcloud.com/thyofficial/47h2349e17a815?si=f07865396d2c400d980d4acbdeeb5d22&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing">Soundcloud</a> - eller lige her ↓</p>
                 <audio src={audio} controls={true}/>
             </div>
-        </figure></> : <h2 onClick={handleExpand}>Udvid artikel ↓</h2>}
+        </figure>
         </RowContainer>
     </StyledVelorenCard>
   )
