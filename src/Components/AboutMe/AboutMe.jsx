@@ -47,6 +47,7 @@ export const AboutMe = () => {
           <li>MySQL</li>
           <li>Figma</li>
           <li>Cubase DAW</li>
+          <li>SEO</li>
       </ul>
     </StyledSection>
   )
@@ -116,7 +117,7 @@ const StyledSection = styled.section`
 //PC and tablet devices
 @media only screen and (min-width: 600px) {
   h1 {
-    margin-top: 3vw;
+    margin-top: 40px;
     color: ${props => props.theme.colors.onBackground};
     font-family: 'Cabin', sans-serif;
     font-size: 2rem;

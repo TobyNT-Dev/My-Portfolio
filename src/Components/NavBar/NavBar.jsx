@@ -48,7 +48,7 @@ const StyledNav = styled.nav`
       svg {
         position: absolute;
         height: 3.5rem;
-        margin: 0.3vw 4vw;
+        margin: 10px 40px;
         z-index: 10;
         .cls-1 {
       fill: ${props => props.theme.colors.onBackground};
